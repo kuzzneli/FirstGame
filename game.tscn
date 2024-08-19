@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp5f6m6s5ygq"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_v4nxh"]
+[ext_resource type="Texture2D" uid="uid://d18spme4a2xkc" path="res://metal_0081_color_1k.jpg" id="2_cjwq1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bc78g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g28u7"]
+radius = 43.5
+height = 170.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hiay0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_widuc"]
+size = Vector2(1163, 89)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(11, 16)
+script = ExtResource("1_v4nxh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Player"]
+position = Vector2(136, 247)
+scale = Vector2(87.323, 82.9973)
+mesh = SubResource("CapsuleMesh_bc78g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(135.5, 246)
+shape = SubResource("CapsuleShape2D_g28u7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(576.5, 661.5)
+scale = Vector2(1225, 197)
+mesh = SubResource("QuadMesh_hiay0")
+texture = ExtResource("2_cjwq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(571.5, 606.5)
+shape = SubResource("RectangleShape2D_widuc")

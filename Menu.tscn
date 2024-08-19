@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1pvi13tu7xgd"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_16fon"]
+[ext_resource type="Texture2D" uid="uid://gquvpk42tbkf" path="res://GUI.png" id="1_tg4uc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbtnm"]
+texture = ExtResource("1_tg4uc")
+region_rect = Rect2(113, 113, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07go6"]
+texture = ExtResource("1_tg4uc")
+region_rect = Rect2(113, 98, 30, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fofkx"]
+texture = ExtResource("1_tg4uc")
+region_rect = Rect2(113, 81, 30, 14)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_16fon")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 127.0
+offset_right = 295.0
+offset_bottom = 232.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_nbtnm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07go6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fofkx")
+text = "Play"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
